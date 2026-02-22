@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coffee: #2D1810;
+  --color-coffee-light: #5C3A2E;
+  --color-coffee-dark: #1A0D08;
+  --color-cream: #F5E6D3;
+  --color-cream-dark: #E8D5BE;
+  --color-golden: #E8A838;
+  --color-golden-light: #F0C060;
+  --color-golden-dark: #C08820;
+  --color-offwhite: #FFF8F0;
+  --color-charcoal: #1F1F1F;
+  --color-charcoal-light: #555555;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-offwhite);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-coffee);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-coffee-light);
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== Marquee Animation ===== */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+.marquee-track-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+.marquee-track-left:hover,
+.marquee-track-right:hover {
+  animation-play-state: paused;
+}
+
+/* ===== Card Glow ===== */
+.card-glow {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 8px 32px rgba(232, 168, 56, 0.25), 0 0 0 1px rgba(232, 168, 56, 0.15);
+}
